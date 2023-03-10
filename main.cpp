@@ -1,15 +1,16 @@
 #include <iostream>
 #include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <graphics.h>
 #include "primitivas.h"
 
-int main(){
+  
+
+ int main(){
 	/// abrir janela//////
 	XMAX = 600; YMAX = 400;
-	int opcao,x1,x2,y1,y2;
-	
+	int opcao;
+
+
     do{
     	//// chama o menu////
 		menu();	
@@ -20,67 +21,50 @@ int main(){
     switch (opcao){
     	
     case 0: //limpar tela 
-        system("cls || clear");
-        break;
-        
-  	case 1: //Algoritmo Reta: Equacao Geral     
-		cout<<"Digite o ponto inicial da reta (X1,Y1): ";
-		cin>>p1[0]>>p1[1];
-		cout<<"Digite o ponto final da reta (X2,Y2): ";
-		cin>>p2[0]>>p2[1];
+  		 system("cls || clear");
+    break;
+    
+	case 1: //
 		initwindow(XMAX, YMAX);
-		EquacaoGeral(p1,p2);
-        getch( );
-		closegraph( );
-		break;
-			
-  	case 2: //Algoritmo Reta: Equacao Diferencial
-	    cout<<"Digite o ponto inicial da reta (X1,Y1): ";
-		cin>>p1[0]>>p1[1];
-		cout<<"Digite o ponto final da reta (X2,Y2): ";
-		cin>>p2[0]>>p2[1];
+		CirculoParametrica();			
+		getch( ); // aguarda alguma tecla ser digitada na tela do DOS
+		closegraph( ); // fecha modo gráfico
+	break;	
+        	
+	case 2: //
 		initwindow(XMAX, YMAX);
-		DDA(p1, p2);
-		getch( );
-		closegraph( );
-		break;
-		
-	case 3: //bresenham   
-    	cout<<"Digite o ponto inicial (X1,Y1): ";
-		cin>>x1>>y1;
-		cout<<"Digite o ponto final (X2,Y2): ";
-		cin>>x2>>y2;
-		initwindow(XMAX, YMAX);
-		Bresenham(x1, y1, x2, y2);			
-		getch( );
-		closegraph( );
-		break;
-		
-	case 4: //HORIZONTAL
-	    initwindow(XMAX, YMAX);
-		horizontal();			
-		getch( );
-		closegraph( );
-		break;
-	case 5: //Vertical
-	    initwindow(XMAX, YMAX);
-		vertical();		
-		getch( );
-		closegraph( );
-		break;
+		CirculoPontoMedio();			
+		getch( ); // aguarda alguma tecla ser digitada na tela do DOS
+		closegraph( ); // fecha modo gráfico
+	break;
 	
-	case 6: //construir grade na janela
-		initwindow(XMAX, YMAX);//janela 720x440
-	    tracejado();
-		getch( );
-		closegraph( );
-		break;	
+	case 3: //
+		initwindow(XMAX, YMAX);
+		PreenchimentoDoCirculo();			
+		getch( ); // aguarda alguma tecla ser digitada na tela do DOS
+		closegraph( ); // fecha modo gráfico
+	break;
 	
-	case 7: //sair
-		break;	
+	case 4: //
+		initwindow(XMAX, YMAX);
+  		ConstrucaoPreenchimentoElipses(250, 250, 100, 50);
+		getch( ); // aguarda alguma tecla ser digitada na tela do DOS
+		closegraph( ); // fecha modo gráfico
+	break;
+	
+	case 5: //
+		initwindow(XMAX, YMAX);
+		PreenchimentoDePoligonosQuaisquer();
+		getch( ); // aguarda alguma tecla ser digitada na tela do DOS
+		closegraph( ); // fecha modo gráfico
+	break;
+	
+	case 6: //
+	break;
+
 	  }
 	  
-	}while(opcao != 5);
+	}while(opcao != 6);
 	
 return  0;
 }
